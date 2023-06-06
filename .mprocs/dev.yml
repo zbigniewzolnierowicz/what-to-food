@@ -1,0 +1,5 @@
+procs:
+  remix:
+    shell: npm run remix:dev
+  nestjs:
+    shell: npm run start:dev
