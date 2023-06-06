@@ -50,6 +50,7 @@
         "@types/supertest": "^2.0.11",
         "@typescript-eslint/eslint-plugin": "^6.0.0-alpha.138",
         "@typescript-eslint/parser": "^6.0.0-alpha.144",
+        "cz-conventional-changelog": "^3.3.0",
         "eslint": "^8.0.1",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-prettier": "^4.0.0",
@@ -80,5 +81,10 @@
         ],
         "coverageDirectory": "../coverage",
         "testEnvironment": "node"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
     }
 }
