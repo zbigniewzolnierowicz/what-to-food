@@ -1,6 +1,7 @@
 {
   "include": [
     "./remix.env.d.ts",
+    "./remix.config.js",
     "frontend/**/*.ts",
     "frontend/**/*.tsx"
   ],
@@ -22,7 +23,7 @@
     "baseUrl": ".",
     "paths": {
       "~/*": [
-        "./app/*"
+        "./frontend/app/*"
       ]
     },
     // Remix takes care of building everything in `remix build`.
