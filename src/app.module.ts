@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppService } from './app.service';
 import { RemixController } from './remix/remix.controller';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
@@ -15,6 +14,6 @@ import { join } from 'path';
     }),
   ],
   controllers: [RemixController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}
