@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { RemixController } from './remix/remix.controller';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { ApiModule } from './api/api.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { join } from 'path';
         maxAge: '1y',
       },
     }),
+    ApiModule,
   ],
   controllers: [RemixController],
   providers: [],

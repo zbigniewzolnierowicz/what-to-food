@@ -1,10 +1,4 @@
 {
-  "include": [
-    "./remix.env.d.ts",
-    "./remix.config.js",
-    "frontend/**/*.ts",
-    "frontend/**/*.tsx"
-  ],
   "compilerOptions": {
     "lib": [
       "DOM",
@@ -20,13 +14,12 @@
     "strict": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
+    "baseUrl": "./frontend",
     "paths": {
       "~/*": [
-        "./frontend/app/*"
+        "./app/*"
       ]
     },
-    // Remix takes care of building everything in `remix build`.
     "noEmit": true
   }
 }
