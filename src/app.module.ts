@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { RemixController } from './remix/remix.controller';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
-import { ApiModule } from './api/api.module';
+import { ApiModule } from './modules/api/api.module';
+import { RemixModule } from './modules/remix/remix.module';
 
 @Module({
   imports: [
@@ -14,8 +14,8 @@ import { ApiModule } from './api/api.module';
       },
     }),
     ApiModule,
+    RemixModule,
   ],
-  controllers: [RemixController],
   providers: [],
 })
 export class AppModule {}

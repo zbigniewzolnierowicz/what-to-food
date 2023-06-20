@@ -1,10 +1,11 @@
 import { All, Controller, Next, Req, Res } from '@nestjs/common';
 import { createRequestHandler } from '@remix-run/express';
 import { NextFunction, Request, Response } from 'express';
+import { resolve } from 'path';
 
 @Controller('/')
 export class RemixController {
-  private remixHandlerPath = '../../../build';
+  private remixHandlerPath = './build';
 
   // constructor() {}
 
@@ -20,7 +21,7 @@ export class RemixController {
     return createRequestHandler({
       // `remix build` and `remix dev` output files to a build directory, you need
       // to pass that build to the request handler
-      build: require(this.remixHandlerPath),
+      build: require(resolve(this.remixHandlerPath)),
 
       // return anything you want here to be available as `context` in your
       // loaders and actions. This is where you can bridge the gap between Remix

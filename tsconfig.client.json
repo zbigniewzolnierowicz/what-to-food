@@ -21,5 +21,6 @@
       ]
     },
     "noEmit": true
-  }
+  },
+  "include": ["remix.config.js", "frontend/**/*"]
 }

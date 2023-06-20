@@ -8,7 +8,6 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react';
-import React from 'react';
 import stylesheet from './tailwind.css';
 
 export const links: LinksFunction = () => [
