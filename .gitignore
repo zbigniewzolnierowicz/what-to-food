@@ -34,6 +34,10 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# Remix
 **/.cache
 /build
 /public/build
+
+# Environment variables
+.env

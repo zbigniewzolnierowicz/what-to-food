@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres
+    env_file: .env
+
+  ferretdb:
+    image: ghcr.io/ferretdb/ferretdb
+    restart: on-failure
+    env_file: .env
+    ports:
+      - 27017:27017
+
+networks:
+  default:
+    name: ferretdb
