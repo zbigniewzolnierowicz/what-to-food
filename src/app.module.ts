@@ -7,7 +7,7 @@ import { HealthController } from './health/health.controller';
 import { TerminusModule } from '@nestjs/terminus';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { LoggerMiddleware } from './logger/logger.middleware';
+import { LoggerMiddleware } from './middleware/logger/logger.middleware';
 import { configSchema } from './utils/config.schema';
 
 @Module({
