@@ -1,12 +1,16 @@
 services:
   postgres:
     image: postgres
-    env_file: .env
+    environment:
+      - POSTGRES_USER=username
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=ferretdb
 
   ferretdb:
     image: ghcr.io/ferretdb/ferretdb
     restart: on-failure
-    env_file: .env
+    environment:
+      - FERRETDB_POSTGRESQL_URL=postgres://postgres:5432/ferretdb
     ports:
       - 27017:27017
 
