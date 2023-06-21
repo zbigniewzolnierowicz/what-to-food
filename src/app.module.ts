@@ -13,7 +13,7 @@ import { configSchema } from './utils/config.schema';
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../../public'),
+      rootPath: join(__dirname, '../public'),
       serveStaticOptions: {
         immutable: true,
         maxAge: '1y',

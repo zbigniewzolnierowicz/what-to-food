@@ -7,7 +7,9 @@ import { resolve } from 'path';
 export class RemixController {
   private remixHandlerPath = './build';
 
-  // constructor() {}
+  constructor() {
+    console.log(resolve(this.remixHandlerPath));
+  }
 
   @All('*')
   handler(
