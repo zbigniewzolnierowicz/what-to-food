@@ -9,7 +9,6 @@ import { LoggerMiddleware } from './middleware/logger/logger.middleware';
 import { configSchema } from './utils/config.schema';
 import { HealthModule } from './modules/health/health.module';
 
-
 @Module({
   imports: [
     ServeStaticModule.forRoot({
@@ -35,7 +34,6 @@ import { HealthModule } from './modules/health/health.module';
       }),
     }),
   ],
-  providers: [],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {

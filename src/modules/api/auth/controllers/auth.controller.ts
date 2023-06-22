@@ -1,7 +1,18 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  UsePipes,
+  ValidationPipe,
+} from '@nestjs/common';
+import { AuthService } from '../services/auth.service';
+import { NewUserDTO } from '../dto/create-user.dto';
 
 @Controller('api/auth')
 export class AuthController {
+  constructor(private authService: AuthService) {}
+
   @Post('/login')
   async login() {
     return 'login';
@@ -13,7 +24,8 @@ export class AuthController {
   }
 
   @Post('/new')
-  async signup() {
-    return 'signup';
+  @UsePipes(new ValidationPipe())
+  async signup(@Body() newUserDTO: NewUserDTO) {
+    return this.authService.createUser(newUserDTO);
   }
 }
