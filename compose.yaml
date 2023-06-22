@@ -1,19 +1,6 @@
 services:
-  postgres:
-    image: postgres
-    environment:
-      - POSTGRES_USER=username
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=ferretdb
-
-  ferretdb:
-    image: ghcr.io/ferretdb/ferretdb
-    restart: on-failure
-    environment:
-      - FERRETDB_POSTGRESQL_URL=postgres://postgres:5432/ferretdb
+  db:
+    image: mariadb
+    env_file: ./.env
     ports:
-      - 27017:27017
-
-networks:
-  default:
-    name: ferretdb
+      - 3306:3306

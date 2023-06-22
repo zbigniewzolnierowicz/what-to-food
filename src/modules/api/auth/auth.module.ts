@@ -1,19 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AuthController } from './controllers/auth.controller';
-import { MongooseModule } from '@nestjs/mongoose';
-import { User, UserSchema } from './models/user.schema';
 import { AuthService } from './services/auth.service';
+import { MikroOrmModule } from '@mikro-orm/nestjs';
+import { User } from './models/user.schema';
 
 @Module({
   controllers: [AuthController],
-  imports: [
-    MongooseModule.forFeature([
-      {
-        name: User.name,
-        schema: UserSchema,
-      },
-    ]),
-  ],
+  imports: [MikroOrmModule.forFeature([User])],
   providers: [AuthService],
 })
 export class AuthModule {}

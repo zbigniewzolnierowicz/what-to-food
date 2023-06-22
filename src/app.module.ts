@@ -3,16 +3,17 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { ApiModule } from './modules/api/api.module';
 import { RemixModule } from './modules/remix/remix.module';
-import { MongooseModule } from '@nestjs/mongoose';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 import { LoggerMiddleware } from './middleware/logger/logger.middleware';
 import { configSchema } from './utils/config.schema';
 import { HealthModule } from './modules/health/health.module';
+import { MikroOrmModule, MikroOrmModuleSyncOptions } from '@mikro-orm/nestjs';
+import MikroOrmConfig from './mikro-orm.config';
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../public'),
+      rootPath: join(__dirname, '/../../public'),
       serveStaticOptions: {
         immutable: true,
         maxAge: '1y',
@@ -26,13 +27,7 @@ import { HealthModule } from './modules/health/health.module';
         return configSchema.parse(config);
       },
     }),
-    MongooseModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: async (config: ConfigService) => ({
-        uri: config.get<string>('MONGO_URL'),
-      }),
-    }),
+    MikroOrmModule.forRoot(MikroOrmConfig as MikroOrmModuleSyncOptions),
   ],
 })
 export class AppModule {

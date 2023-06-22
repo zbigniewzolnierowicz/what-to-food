@@ -7,10 +7,6 @@ import { resolve } from 'path';
 export class RemixController {
   private remixHandlerPath = './build';
 
-  constructor() {
-    console.log(resolve(this.remixHandlerPath));
-  }
-
   @All('*')
   handler(
     @Req() request: Request,

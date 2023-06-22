@@ -3,5 +3,3 @@ procs:
     shell: npm run remix:dev
   nestjs:
     shell: npm run nestjs:dev
-  docker:
-    shell: docker compose up

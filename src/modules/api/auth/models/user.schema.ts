@@ -1,18 +1,34 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Entity, PrimaryKey, Property, Unique } from '@mikro-orm/core';
+import { v4 } from 'uuid';
 
-@Schema()
+@Entity()
 export class User {
-  @Prop({ unique: true })
-  username: string;
+  @PrimaryKey()
+  uuid: string = v4();
 
-  @Prop()
-  display_name: string;
+  @Property()
+  @Unique()
+  username!: string;
 
-  @Prop()
-  password_hash: string;
+  @Property()
+  display_name!: string;
 
-  @Prop({ unique: true })
-  email: string;
+  @Property()
+  password_hash!: string;
+
+  @Property()
+  @Unique()
+  email!: string;
+
+  constructor(
+    username: string,
+    display_name: string,
+    password_hash: string,
+    email: string,
+  ) {
+    this.username = username;
+    this.display_name = display_name;
+    this.email = email;
+    this.password_hash = password_hash;
+  }
 }
-
-export const UserSchema = SchemaFactory.createForClass(User);

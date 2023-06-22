@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
 export const configSchema = z.object({
-  MONGO_URL: z.string(),
+  MARIADB_USER: z.string(),
+  MARIADB_PASSWORD: z.string(),
+  MARIADB_DATABASE: z.string(),
 });
